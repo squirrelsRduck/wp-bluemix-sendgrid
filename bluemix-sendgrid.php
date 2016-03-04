@@ -14,8 +14,8 @@
       $vcap = getenv("VCAP_SERVICES");
       if($vcap) {
          $data = json_decode($vcap, true);
-         if(!is_null($data) && isset($data['sendgrid'])) {
-            $creds = $data['sendgrid'][0]['credentials'];
+         if(!is_null($data) && isset($data['user-provided'])) {
+            $creds = $data['user-provided'][1]['credentials'];
 
             update_option( 'sendgrid_user', $creds['username'] );
             update_option( 'sendgrid_pwd', $creds['password'] );
